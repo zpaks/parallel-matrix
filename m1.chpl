@@ -33,13 +33,13 @@ fillRandom(X, seed2);
 
 var B = blockDist.createArray({1..N, 1..N}, real);
 
-var AA = blockDist.createArray({1..N*N+1000000}, real);
+var AA = blockDist.createArray({1..N*N}, real);
 fillRandom(AA, seed);
 
-var XX = blockDist.createArray({1..N*N+1000000}, real);
+var XX = blockDist.createArray({1..N*N}, real);
 fillRandom(XX, seed2);
 
-var BB = blockDist.createArray({1..N*N+1000000}, real);
+var BB = blockDist.createArray({1..N*N}, real);
 
 
 // variables for the time taken by the program.
@@ -123,7 +123,7 @@ proc MmultiplySqrtV2(N: int, K: int): void
                     var wyn :real = 0;
                     for kk in 0..lc-1 do {
                         // wyn += AA(ii, kk) * XX(kk, jj);
-                        wyn += AA[ma + ii * m_size + kk + 1] * XX[mb + kk * m_size * jj + 1];
+                        wyn += AA[ma + ii * m_size + kk + 1] * XX[mb + kk * m_size + jj + 1];
                     }
                     // C(i, j) += wyn;
                     BB[mc + ii * m_size + jj + 1] += wyn;
