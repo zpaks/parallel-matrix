@@ -7,9 +7,6 @@ config const threads = 1;
 var seed: int = 589494289 ; // seed for random number generator
 writeln("Number of points = ", n);
 writeln("Random number seed = ", seed);
-var rs = new RandomStream(real, seed, parSafe=false);
-var count = 0;
-
 var A = blockDist.createArray({1..threads}, int);
 
 var t: Timer;
